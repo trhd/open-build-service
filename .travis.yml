@@ -4,7 +4,6 @@ rvm: 2.3.0
 gemfile: src/api/Gemfile
 before_install: dist/ci/travis_before_install.sh
 before_script: dist/ci/travis_before_script.sh
-after_failure: dist/ci/travis_after_failure.sh
 script: "dist/ci/travis_script.sh $TEST_SUITE"
 env:
   - TEST_SUITE=rspec
@@ -26,12 +25,6 @@ matrix:
         - tmp/rubocop_cache
     before_install: ''
     before_script: ''
-notifications:
-  irc:
-     channels:
-       - "chat.freenode.net#opensuse-buildservice"
-     on_success: change
-     on_failure: change
 services:
   - memcached
 sudo: required
